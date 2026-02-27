@@ -9,6 +9,6 @@
   
   * Contributions are welcomed
 
- ## disclimer 
+ ## disclaimer 
 
   * I am developing this for fun and for my own use, this is still in developing stage so it may or may not work some time  : )
