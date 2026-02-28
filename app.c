@@ -19,14 +19,14 @@ org=fopen("original.txt","r+");
     char j=0;
     while(a!=EOF){
         if(j==0){
-            printf("%d:",line);
+            printf("%02d:",line);
             printf("\u2610");
             j=1;
         }
         printf("%c",a);
          if(a=='\n'){
             line++;
-             printf("%d:",line);
+             printf("%02d:",line);
             printf("\u2610");
 
         }
@@ -35,7 +35,9 @@ org=fopen("original.txt","r+");
     printf("\n");
 
 }
-void add_task(){char a=fgetc(org);
+void add_task(){
+    org=fopen("original.txt","r+");
+    char a=fgetc(org);
     FILE *cpy1=org;
     
     while(a!=EOF){
@@ -48,19 +50,48 @@ void add_task(){char a=fgetc(org);
       getchar();
     fgets(task,900,stdin);
     task[strcspn(task,"\n")]=0;
-    printf("%s\n",task);
+    //printf("%s\n",task);
     fputs("\n",cpy1);
     fputs(task,cpy1);
     fclose(cpy1);
 }
-void rm_task();
-void close(){fclose(org);
-        fclose(cpy);}
+void rm_task(){
+    printf("do you want to delete a task y/n:");
+    fflush(stdin);
+    getchar();
+    char a=getchar();
+    if(a=='n' || a=='N') return ;
+    printf("enter the task no to be removed:");
+    int i;
+    scanf("%d",&i);
+    org=fopen("original.txt","r+");
+    cpy=fopen("copy.txt","w+");
+     a=fgetc(org);
+    int line=1;
+    while(a!=EOF){
+        if (i!=line) fputc(a,cpy);
+        if(a=='\n') line++;
+        a=fgetc(org);
+    }fclose(cpy);
+    fclose(org);
+    cpy=fopen("copy.txt","r+");
+    org=fopen("original.txt","w+");
+    a=fgetc(cpy);
+    while(a!=EOF){
+        fputc(a,org);
+        a=fgetc(cpy);
+    }
+    fclose(cpy);
+    fclose(org);
+
+    
+}
+
 
 
 int main(){
-org=fopen("original.txt","r+");
-cpy=fopen("copy.txt","r+");
+//org=fopen("original.txt","r+");
+//  cpy=fopen("copy.txt","r+");
 printf("\t\t-------------To Do List-------------\n");
 
 while(1){
@@ -81,11 +112,11 @@ while(1){
    
     }
     case 3:{
-
+  rm_task();
  break;
     }
     case 4:   {
-        close();
+        
          return 0;
 
     } 
