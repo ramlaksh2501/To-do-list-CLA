@@ -1,10 +1,7 @@
 //to create the files to get the app running 
 #include<stdlib.h>
 #include<stdio.h>
-void display();
-void add_task();
-void rm_task();
-void close();
+ 
 int main(){
 
     FILE *copy,*original;
