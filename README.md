@@ -6,13 +6,13 @@ use this cmd to run the app for the first time
  git clone https://github.com/ramlaksh2501/To-do-list-CLA.git
  cd To-do-list-CLA
  ./init
- ./out
+ ./todo
   ```
   use this if you ever wanna run it again
   ```console 
-  ./out
+  ./todo
   ```
-  note:you first need to run init first before using out (for the first time only)
+  note:you first need to run init first before using todo (for the first time only)
 
 ## about the project 
   *  This a command line app 
